@@ -1,10 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+
+//Arithmetic and Geometric series
 int main(void)
 {
   int a,b,c;
-  printf("Enter three integers: ");
-  while (scanf("%d %d %d",&a,&b,&c)!=EOF)
+  while (1)
   {
+  printf("Enter three integers: ");
+  scanf("%d %d %d",&a,&b,&c);
   int n=(b+c-2*a)*(a+c)/2/(b-a);
   printf("Sum of the arithmetic series by formula      = %d\n",n);
   int sum=0,i=a,d=b-a;
