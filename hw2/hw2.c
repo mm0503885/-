@@ -1,9 +1,13 @@
 #include <stdio.h>
+
+//iSum
+
+
 int sum1 (int n)
 {
-     int r=1;
+     int r=1; //位數
      while (n/r>=10) r*=10;
-     int sum1=0,a=1;
+     int sum1=0,a=1; //a:第幾項
      while (r>0)
     {
      int d=n/r;
@@ -17,7 +21,7 @@ int sum1 (int n)
      r/=10;
      a++;
     }
-     printf(" = %d\n",sum1);
+     printf(" = ");
      return sum1;
 }
 void sum2 (int n)
@@ -25,7 +29,7 @@ void sum2 (int n)
      int r=1,a=1;
      while(n/r>=10)
     {r*=10; a++;}
-     int b=1,e=(a-2);
+     int b=1,e=(a-2); //e: 括弧數
      while (b<=e)
     {printf("("); b++;}
      int d=1,m=n,c;
@@ -57,7 +61,7 @@ int main(void)
      while
     (scanf("%d",&n)!=EOF)
     {
-     sum1(n);
+	 printf("%d\n",sum1(n));
      sum2(n);
      printf("Enter an integer >=0: ");
     }
