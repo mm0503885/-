@@ -1,8 +1,15 @@
 #include <stdio.h>
+
+//Prime factorization and divisor
+
 void factorization(unsigned n)
 {
     printf("Prime factorization of %u = ",n);
-    unsigned p=2,e=0,d=1,f=1,k,m;
+    unsigned p=2,e=0,d=1,f=1,k,m; 
+	/* p:質因數 e:指數 d:Number of divisors f:Sum of divisors
+	k:f的每個括弧內的每項 m:f的每個括弧 */
+	
+	
 	while(p<=n)
     {
         if(n%p==0)
