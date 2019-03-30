@@ -2,6 +2,8 @@
 #include <stdlib.h>
 const int sz=16;
 int a[2][sz];
+
+// This function prints out array a[0..1][0..n-1]
 void out (int n)
 {
     int i;
@@ -16,6 +18,8 @@ void out (int n)
     }
     printf("\n\n");
 }
+
+//This function generates n random scores in the range 0..100 and stores them in array a[1][0..n-1]
 void randscore (int n)
 {
     int i;
@@ -24,6 +28,8 @@ void randscore (int n)
         a[1][i]=rand()%101;
     }
 }
+
+//This function generates a random permutation of 1,2,3,...,and n in array a[0][0..n-1]
 void randperm (int n)
 {
     int i;
@@ -40,28 +46,32 @@ void randperm (int n)
         a[0][j]=t;
     }
 }
+
+//cyclesort //see spec
 void cyclesort (int n)
 {
     int i;
     for(i=0;i<n;i++)
     {
-        int t=a[0][i];
-        int x=a[1][i];
-        int q=t;
-        int y=x;
-        while(q!=(i+1))
+        int number=a[0][i];
+        int score=a[1][i];
+        int position=number;
+        int score_chg=score;
+        while(position!=(i+1))
         {
-            q=a[0][t-1];
-            y=a[1][t-1];
-            a[0][t-1]=t;
-            a[1][t-1]=x;
-            t=q;
-            x=y;
+            position=a[0][number-1];
+            score_chg=a[1][number-1];
+            a[0][number-1]=number;
+            a[1][number-1]=score;
+            number=position;
+            score=score_chg;
         }
-        a[0][i]=q;
-        a[1][i]=y;
+        a[0][i]=position;
+        a[1][i]=score_chg;
     }
 }
+
+//gnomesort //see spec
 void gnomesort (int n)
 {
     int i=0;
