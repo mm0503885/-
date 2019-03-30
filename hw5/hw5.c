@@ -1,7 +1,11 @@
 #include <stdio.h>
-unsigned dec2bcd (unsigned n)
+
+//Binaty-coded decimal
+
+typedef unsigned bcd,decimal;
+bcd dec2bcd (decimal n)
 {
-    int i=0,x=0,a;
+    unsigned i=0,x=0,a;
     while(n>0)
     {
         a=n%10;
@@ -12,7 +16,7 @@ unsigned dec2bcd (unsigned n)
     }
   return x;
  }
-unsigned add (unsigned a,unsigned b)
+bcd add (bcd a,bcd b)
 {
     unsigned i=0,s;
     s=a+b;
@@ -30,7 +34,7 @@ unsigned add (unsigned a,unsigned b)
     }
     return s;
 }
-unsigned subtraction (unsigned a,unsigned b)
+bcd subtraction (bcd a,bcd b)
 {
     unsigned i=0,s;
     s=a-b;
@@ -48,7 +52,7 @@ unsigned subtraction (unsigned a,unsigned b)
     }
     return s;
 }
-unsigned bcd2dec (unsigned n)
+decimal bcd2dec (bcd n)
 {
     unsigned i=0,k=1,s=0,m;
     while(i<8)
