@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+//Real constant Recognizer
+
+//Represent states as statement labels
 void recognizer1 (void)
 {
     sign: switch (getchar())
@@ -35,6 +39,8 @@ void recognizer1 (void)
         case '\n': printf("Accepted by method 1\n\n"); return;
     }
 }
+
+//Represent states as enumerators of an enumeration type
 void recognizer2 (void)
 {
     enum state {sign,integer,fraction,real,error} q=sign;
@@ -63,6 +69,9 @@ void recognizer2 (void)
     if (q==real) printf("Accepted by method 2\n\n");
     else printf ("Rejected by method 2\n\n");
 }
+
+//Use the same representation as method 2
+//But, this time you shall build a transition table in advance, and determine the next state to transit by table lookup
 void recognizer3 (void)
 {
     enum state {sign,integer,fraction,error,real} q=sign;
