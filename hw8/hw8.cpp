@@ -1,5 +1,7 @@
 #include <stdio.h>
-const int kinds=5;
+
+//Coin change
+const int kinds=4;
 int d[kinds]={1,5,10,50};
 struct stack {
 int top;
@@ -8,8 +10,12 @@ int stk[100];
 stack s;
 void facevalue (int k)
 {
-    if(k!=0) facevalue(k-1);
-    if(k>0) printf("   $%d",d[k-1]);
+    if(k==0) return;
+	else
+	{
+	  facevalue(k-1);
+      printf("   $%d",d[k-1]);
+	}
 }
 int cc(int n,int k)
 {
