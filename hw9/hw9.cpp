@@ -1,6 +1,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
+
 struct stack {
  int top;
  char stk[10];
@@ -41,8 +43,8 @@ void eatline (void)
     if(getchar()!='\n') eatline();
     return;
 }
-void show (int i);
-int x3 (int n);
+void show (int);
+int x3 (int);
 int x3_2 (int n)
 {
     if(n>0)
@@ -55,6 +57,8 @@ int x3_2 (int n)
         s.top--;
         return r+q;
     }
+	else 
+	  return 0;
 }
 int x3_1 (int n)
 {
@@ -68,6 +72,8 @@ int x3_1 (int n)
         s.top--;
         return r+q;
     }
+	else 
+	  return 0;
 }
 int x3 (int n)
 {
@@ -80,10 +86,10 @@ int x3 (int n)
     if(n>0)
     {
         s.stk[++s.top]=0;
-        int r=x3_1 (n-1);
+        int r=x3_1(n-1);
         s.top--;
         s.stk[++s.top]=1;
-        int q=x3 (n-1);
+        int q=x3(n-1);
         s.top--;
         return r+q;
     }
@@ -91,7 +97,8 @@ int x3 (int n)
 void show (int i)
 {
     if(i!=0) show(i-1);
-    if(i>=0) printf("%d",s.stk[i]);
+    printf("%d",s.stk[i]);
+	return ;
 }
 void ui (void)
 {
