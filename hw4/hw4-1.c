@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool good (unsigned n)
+bool good (unsigned n)  //判斷n的每個位數的值相加是否為'g'+'o'+'o'+'d'
 {
-  unsigned x='g'+'o'+'o'+'d';
+  unsigned int x='g'+'o'+'o'+'d';
   char d[10];
   int i=0;
   while(n>0)
@@ -23,13 +23,13 @@ bool good (unsigned n)
       d[i]=d[i]+d[i+1];
       i--;
   }
-  unsigned s=d[0]+d[1]+d[2]+d[3]+d[4]+d[5]+d[6]+d[7]+d[8]+d[9];
+  unsigned int s=d[0]+d[1]+d[2]+d[3]+d[4]+d[5]+d[6]+d[7]+d[8]+d[9];
   if(s==x)
-    printf("Good, ");
+    return true;
   else
-    printf("Not good, ");
+    return false;
 }
-bool bad(unsigned n)
+bool bad(unsigned n) //判斷n是否包含1,3,5
 {
     char d[10]={0};
     int a;
@@ -40,11 +40,11 @@ bool bad(unsigned n)
       d[a]++;
   }
   if(d[1]>=1 && d[3]>=1 && d[5]>=1)
-    printf("Bad, ");
+    return true;
   else
-    printf("Not bad, ");
+    return false;
 }
-bool ugly(unsigned n)
+bool ugly(unsigned n) //判斷n是否被2,3,5整除
 {
     while(n%2==0)
         n/=2;
@@ -53,9 +53,9 @@ bool ugly(unsigned n)
     while(n%5==0)
         n/=5;
     if(n==1)
-        printf("Ugly\n\n");
+        return true;
     else
-        printf("Not ugly\n\n");
+        return false;
 }
 
 int main (void)
@@ -64,9 +64,18 @@ int main (void)
     printf("Enter an unsigned integer >= 1: ");
     while(scanf("%d",&n)!=EOF)
     {
-      good(n);
-      bad(n);
-      ugly(n);
+	  if(good(n))
+        printf("Good, ");
+      else
+        printf("Not good, ");
+	  if(bad(n))
+        printf("Bad, ");
+      else
+        printf("Not bad, ");
+      if(ugly(n))
+        printf("Ugly\n\n");
+      else
+        printf("Not ugly\n\n");
       printf("Enter an unsigned integer >= 1: ");
     }
  return 0;
